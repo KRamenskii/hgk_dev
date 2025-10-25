@@ -142,3 +142,38 @@
     padding: 5rem 0;
     background-color: var(--bg-white);
 }
+
+/* Management Section */
+.management {
+    padding: 5rem 0;
+    background-color: var(--bg-light);
+}
+
+.management-cta {
+    text-align: center;
+    background-color: var(--bg-white);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.management-cta .cta-title {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.management-cta .cta-subtitle {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.responsive-icon {
+    font-size: 1.2rem;
+}
