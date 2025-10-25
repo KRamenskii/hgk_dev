@@ -1,0 +1,55 @@
+<section id="contacts" class="contacts">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Наши контакты</h2>
+            <p class="section-subtitle">
+                Свяжитесь с нами любым удобным способом и познакомьтесь с нашей командой
+            </p>
+        </div>
+        
+        <div class="contacts-grid">
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="icon">📞</i>
+                </div>
+                <h3 class="contact-card-title">Телефон</h3>
+                <p class="contact-card-text contact-btn" data-type="call" data-value="+79134425777" style="cursor: pointer;">
+                    {% if settings %}{{ settings.phone }}{% else %}+7 (913) 442-57-77{% endif %}
+                </p>
+                <p class="contact-btn" data-type="call" data-value="+79135461984" style="cursor: pointer;">
+                    {% if settings %}{{ settings.additional_telephone }}{% else %}+7 (913) 546-19-84{% endif %}
+                </p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="icon">✉️</i>
+                </div>
+                <h3 class="contact-card-title">Email</h3>
+                <p class="contact-card-text contact-btn" data-type="email" data-value="manyakin1975@mail.ru" style="cursor: pointer;">
+                    {% if settings %}{{ settings.email }}{% else %}manyakin1975@mail.ru{% endif %}
+                </p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="icon">📍</i>
+                </div>
+                <h3 class="contact-card-title">Адрес</h3>
+                <p class="contact-btn" data-type="map" data-value="{% if settings %}{{ settings.address }}{% else %}г. Абакан, Ташебинский промышленный узел, промплощадка Абаканвагонмаш территория, 77{% endif %}" style="cursor: pointer;">
+                    {% if settings %}{{ settings.address }}{% else %}г. Абакан, Ташебинский промышленный узел, промплощадка Абаканвагонмаш территория, 77{% endif %}
+                </p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="icon">⏱️</i>
+                </div>
+                <h3 class="contact-card-title">Режим работы</h3>
+                <p class="contact-card-text">
+                    {% if settings %}{{ settings.working_hours }}{% else %}Пн-Пт: 8:00-17:00, экстренно 24/7{% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

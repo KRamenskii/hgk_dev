@@ -5,7 +5,8 @@
 }
 
 .services-grid,
-.advantages-grid {
+.advantages-grid,
+.contacts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
@@ -14,7 +15,8 @@
 
 /* Card Styles */
 .service-card,
-.advantage-card {
+.advantage-card,
+.contact-card {
     background-color: var(--bg-white);
     border-radius: var(--border-radius);
     padding: 1.5rem;
@@ -24,13 +26,15 @@
 }
 
 .service-card:hover,
-.advantage-card:hover {
+.advantage-card:hover,
+.contact-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .service-card-icon,
-.advantage-card-icon {
+.advantage-card-icon,
+.contact-card-icon {
     width: var(--icon-size);
     height: var(--icon-size);
     background-color: var(--bg-blue-secondary);
@@ -44,7 +48,8 @@
 }
 
 .service-card-title,
-.advantage-card-title {
+.advantage-card-title,
+.contact-card-title {
     font-size: 1.125rem;
     font-weight: 600;
     color: var(--text-dark);
@@ -52,7 +57,8 @@
 }
 
 .service-card-description,
-.advantage-card-description {
+.advantage-card-description,
+.contact-card-text {
     color: var(--text-light);
     line-height: 1.5;
 }
@@ -129,4 +135,10 @@
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.125rem;
     margin: 0 auto 2rem;
+}
+
+/* Contacts Section */
+.contacts {
+    padding: 5rem 0;
+    background-color: var(--bg-white);
 }
