@@ -1,0 +1,27 @@
+<section id="advantages" class="advantages">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-subtitle">
+                Мы предоставляем надежные услуги с высоким качеством и безопасностью
+            </p>
+        </div>
+        
+        <div class="advantages-grid">
+            {% for advantage in advantages %}
+            <div class="advantage-card">
+                <div class="advantage-card-icon">
+                    <i class="icon">{{ advantage.icon }}</i>
+                </div>
+                <h3 class="advantage-card-title">{{ advantage.title }}</h3>
+                <p class="advantage-card-description">
+                    {{ advantage.description }}
+                </p>
+                {% if advantage.badge_text %}
+                <div class="advantage-card-badge">{{ advantage.badge_text }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

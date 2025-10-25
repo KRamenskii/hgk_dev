@@ -4,7 +4,8 @@
     background-color: var(--bg-light);
 }
 
-.services-grid {
+.services-grid,
+.advantages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
@@ -12,7 +13,8 @@
 }
 
 /* Card Styles */
-.service-card {
+.service-card,
+.advantage-card {
     background-color: var(--bg-white);
     border-radius: var(--border-radius);
     padding: 1.5rem;
@@ -21,37 +23,14 @@
     border: 1px solid var(--border-color);
 }
 
-.service-card:hover {
+.service-card:hover,
+.advantage-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
-.service-card-icon {
-    width: 60px;
-    height: 60px;
-    background-color: var(--bg-blue-secondary);
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: white;
-}
-
-.service-card-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0.75rem;
-}
-
-.service-card-description {
-    color: var(--text-light);
-    line-height: 1.5;
-}
-
-.service-card-icon {
+.service-card-icon,
+.advantage-card-icon {
     width: var(--icon-size);
     height: var(--icon-size);
     background-color: var(--bg-blue-secondary);
@@ -62,6 +41,20 @@
     margin-bottom: 1rem;
     font-size: 1.5rem;
     color: white;
+}
+
+.service-card-title,
+.advantage-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.service-card-description,
+.advantage-card-description {
+    color: var(--text-light);
+    line-height: 1.5;
 }
 
 .animated-box {
@@ -93,7 +86,28 @@
         transform: scale(1);
     }
     50% {
-        background-color: var(--primary-dark); /* Бирюзовый */
+        background-color: var(--primary-dark);
         transform: scale(1.1);
     }
+}
+
+/* Advantages section */
+.advantages {
+    padding: 5rem 0;
+    background-color: var(--bg-white);
+}
+
+.advantage-card-badge {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+}
+
+.advantage-card-icon {
+    background-color: var(--bg-orange-secondary);
 }
