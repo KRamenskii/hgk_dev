@@ -1,0 +1,29 @@
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">
+                Полный спектр услуг от поставки газа до монтажа оборудования
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            {% for service in services %}
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <i class="icon">{{ service.icon }}</i>
+                </div>
+                <h3 class="service-card-title">{{ service.title }}</h3>
+                <p class="service-card-description">
+                    {{ service.description }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="animated-box">
+            <span class="blinking-dot"></span>
+            Работаем с 2008 года ∙ Более 1000 довольных клиентов
+        </div>
+    </div>
+</section>

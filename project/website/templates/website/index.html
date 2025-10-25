@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% block title %}Главная страница{% endblock %}</title>
-</head>
-<body>
-    <header>
-        <h1>Мой интернет-магазин</h1>
-    </header>
+{% extends "base.html" %}
 
-    <div class="content">
-        {% block content %}
-        {% for product in products %}
-            <p>{{ product }}</p>
-        {% endfor %}
-    {% endblock %}
-    </div>
-
-    <footer>
-        <p>Все права защищены</p>
-    </footer>
-</body>
-</html>
+{% block content %}
+    {% include 'website/sections/hero.html' %}
+    {% include 'website/sections/services.html' %}
+    {% include 'website/sections/advantages.html' %}
+    {% include 'website/sections/cta.html' %}
+    {% include 'website/sections/contacts.html' %}
+    {% include 'website/sections/management.html' %}
+    {% include 'website/sections/coverage.html' %}
+{% endblock %}
