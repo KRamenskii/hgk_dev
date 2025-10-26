@@ -101,3 +101,5 @@ LOGGING = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+YANDEX_MAP_API_KEY = os.getenv("YANDEX_MAP_API_KEY")

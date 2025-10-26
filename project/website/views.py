@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.conf import settings as django_settings
 from .models import (
-    SiteSettings, Service, Advantage
+    SiteSettings, Service, Advantage, CoverageStat, DeliveryPoint
 )
 
 def index(request):
@@ -13,10 +14,15 @@ def index(request):
     
     services = Service.objects.filter(is_active=True).order_by('order')
     advantages = Advantage.objects.filter(is_active=True).order_by('order')
+    coverage_stats = CoverageStat.objects.filter(is_active=True).order_by('order')
+    delivery_points = DeliveryPoint.objects.filter(active=True)
 
     context = {
         'settings': settings,
         'services': services,
         'advantages': advantages,
+        'coverage_stats': coverage_stats,
+        'delivery_points': list(delivery_points.values("name", "description", "latitude", "longitude")),
+        'YANDEX_MAP_API_KEY': django_settings.YANDEX_MAP_API_KEY,
     }
     return render(request, 'website/index.html', context)

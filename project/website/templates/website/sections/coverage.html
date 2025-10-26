@@ -1,0 +1,40 @@
+<section id="coverage" class="coverage">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">География поставок</h2>
+            <p class="section-subtitle">
+                Мы осуществляем доставку газа по всей Республике Хакасия с минимальными сроками доставки
+            </p>
+        </div>
+        
+        <div class="coverage-stats">
+            {% for stat in coverage_stats %}
+            <div class="coverage-stat-card">
+                <div class="coverage-stat-card-icon">
+                    <i class="icon">{{ stat.icon }}</i>
+                </div>
+                <div class="coverage-stat-card-number">{{ stat.number }}</div>
+                <div class="coverage-stat-card-label">{{ stat.title }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="coverage-map">
+            <h3 class="coverage-map-title">Карта покрытия Хакасии</h3>
+            <p class="coverage-map-subtitle">Интерактивная карта с точками доставки</p>
+            {{ delivery_points|json_script:"delivery-points-data" }}
+            <div class="map-placeholder" id="yandex-map"></div>
+        </div>
+        
+        <div class="coverage-cta">
+            <h3 class="cta-title">Не нашли свой населенный пункт?</h3>
+            <p class="cta-subtitle">
+                Мы постоянно расширяем географию поставок, свяжитесь с нами и мы обязательно найдем решение
+            </p>
+            <button class="btn btn-primary contact-btn" data-type="call" data-value="+79134425777">
+                <i class="bi bi-truck responsive-icon"></i>
+                Уточнить доставку
+            </button>
+        </div>
+    </div>
+</section>
