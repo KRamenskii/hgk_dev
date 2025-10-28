@@ -1,0 +1,42 @@
+{% load static %}
+<section class="hero">
+    <div class="hero-overlay"></div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                {% if settings %}{{ settings.hero_title }}{% else %}Надежная поставка газа в Хакасии{% endif %}
+            </h1>
+                        <p class="hero-subtitle">
+                {% if settings %}{{ settings.hero_subtitle }}{% else %}Официальный дилер газа с полным спектром услуг: от заправки газгольдеров до монтажа оборудования{% endif %}
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-accent contact-btn" data-type="call" data-value="+79134425777">
+                    Заказать доставку
+                </button>
+                <button class="btn btn-secondary contact-btn" data-type="email" data-value="manyakin1975@mail.ru">
+                    Получить консультацию
+                </button>
+            </div>
+        </div>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">{{ hero_stats.years }}</div>
+                <div class="stat-label">Лет опыта</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ hero_stats.clients }}</div>
+                <div class="stat-label">Клиентов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ hero_stats.support }}</div>
+                <div class="stat-label">Поддержка</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ hero_stats.quality }}</div>
+                <div class="stat-label">Гарантия качества</div>
+            </div>
+        </div>
+    </div>
+</section>

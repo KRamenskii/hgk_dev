@@ -27,6 +27,15 @@
     .contacts-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Hero section */
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
 }
 
 /* Tablet */
@@ -36,6 +45,33 @@
     .contacts-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Hero section */
+    .hero {
+        margin-top: auto !important;
+        background-attachment: scroll;
+    }
+    
+    .hero-content {
+        max-width: 60vw;
+        gap: 2rem;
+    }
+
+    .hero-title {
+        font-size: 3.5vw;
+    }
+
+    .hero-subtitle {
+        font-size: 2.0vw;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-item {
+        padding: 1rem;
+    }
 }
 
 /* Mobile */
@@ -44,6 +80,27 @@
     .advantages-grid,
     .contacts-grid {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* Hero section */
+    .hero-content {
+        max-width: 80vw;
+    }
+
+    .hero-title {
+        font-size: 5vw;
+    }
+
+    .hero-subtitle {
+        font-size: 3vw;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-item {
+        padding: 1rem;
     }
 }
 
