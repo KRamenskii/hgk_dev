@@ -1,0 +1,91 @@
+{% load static %}
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <div class="logo-icon footer-icon-container footer-logo-container">
+                            <img src="{% static 'img/logo.png' %}" class="logo-icon">
+                        </div>
+                        <div class="logo-text-footer">
+                            <div class="logo-title">Хакасская газовая компания</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="footer-description">
+                    Надежный партнер в области газоснабжения в Хакасии с 2010 года. Полный спектр услуг от поставки до технического обслуживания.
+                </p>
+                <div class="footer-contact-info">
+                    <div class="contact-item contact-btn" data-type="call" data-value="{% if settings %}{{ settings.phone }}{% else %}+7 (913) 442-57-77{% endif %}" style="cursor: pointer;">
+                        <div class="footer-icon-container">
+                            <i class="bi bi-telephone responsive-icon"></i>
+                        </div>
+                        <span>{% if settings %}{{ settings.phone }}{% else %}+7 (913) 442-57-77{% endif %}</span>
+                    </div>
+
+                    <div class="contact-item contact-btn" data-type="email" data-value="{% if settings %}{{ settings.email }}{% else %}manyakin1975@mail.ru{% endif %}" style="cursor: pointer;">
+                        <div class="footer-icon-container">
+                            <i class="bi bi-envelope responsive-icon"></i>
+                        </div>
+                        <span>{% if settings %}{{ settings.email }}{% else %}manyakin1975@mail.ru{% endif %}</span>
+                    </div>
+                    
+                    <div class="contact-item contact-btn" data-type="map" data-value="{% if settings %}{{ settings.address }}{% else %}г. Абакан, Ташебинский промышленный узел, промплощадка Абаканвагонмаш территория, 77{% endif %}" style="cursor: pointer;">
+                        <div class="footer-icon-container">
+                            <i class="bi bi-geo-alt responsive-icon"></i>
+                        </div>
+                        <span>{% if settings %}{{ settings.address }}{% else %}г. Абакан, Ташебинский промышленный узел, промплощадка Абаканвагонмаш территория, 77{% endif %}</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="footer-icon-container">
+                            <i class="bi bi-clock responsive-icon"></i>
+                        </div>
+                        <span>{% if settings %}{{ settings.working_hours }}{% else %}Пн-Пт: 8:00-17:00{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4 class="footer-title">Важные ссылки</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#coverage">География</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4 class="footer-title">Связаться с нами</h4>
+                <div class="footer-buttons">
+                    <button class="btn btn-primary contact-btn" data-type="call" data-value="+79134425777">
+                        <i class="bi bi-telephone responsive-icon"></i>
+                        Позвонить
+                    </button>
+                    <button class="btn btn-primary contact-btn" data-type="whatsapp" data-value="+79134425777">
+                        <i class="bi bi-whatsapp responsive-icon"></i>
+                        WhatsApp
+                    </button>
+                    <button class="btn btn-primary contact-btn" data-type="email" data-value="manyakin1975@mail.ru">
+                        <i class="bi bi-envelope responsive-icon"></i>
+                        Mail
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                © 2025 ХГК - Хакасская газовая компания. Все права защищены.
+            </div>
+            <div class="footer-links-bottom">
+                <a href="#" class="footer-link">Политика конфиденциальности</a>
+                <span class="footer-made-by">
+                    Created by <a href="https://github.com/KRamenskii" target="_blank" class="made-by-logo">Ramenskii</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
