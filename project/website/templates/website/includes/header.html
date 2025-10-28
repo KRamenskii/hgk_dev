@@ -1,0 +1,66 @@
+{% load static %}
+<header class="header header-transparent" id="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-static">
+                <div class="header-logo">
+                    <div class="logo">
+                        <div class="logo-icon header-icon-container footer-logo-container">
+                            <img src="{% static 'img/logo.png' %}" class="logo-icon">
+                        </div>
+                        <div class="logo-text">
+                            <div class="logo-title">ХГК</div>
+                            <div class="logo-subtitle">Хакасская газовая компания</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-contacts-mobile">
+                    <button class="menu-toggle contact-btn" data-type="call" data-value="+79134425777">
+                        <i class="bi bi-telephone responsive-icon"></i>
+                    </button>
+
+                    <button class="menu-toggle contact-btn" data-type="whatsapp" data-value="+79134425777">
+                        <i class="bi bi-whatsapp responsive-icon"></i>
+                    </button>
+
+                    <button class="menu-toggle contact-btn" data-type="email" data-value="manyakin1975@mail.ru">
+                        <i class="bi bi-envelope responsive-icon"></i>
+                    </button>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="bi bi-list responsive-icon-two"></i>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <nav class="header-nav">
+                    <ul class="nav-list">
+                        <li><a href="#services" class="nav-link">Услуги</a></li>
+                        <li><a href="#advantages" class="nav-link">Преимущества</a></li>
+                        <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                        <li><a href="#coverage" class="nav-link">География</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-contacts">
+                    <button class="btn btn-primary btn-header contact-btn" data-type="call" data-value="+79134425777">
+                        <i class="bi bi-telephone responsive-icon"></i>
+                        +7 (913) 442-57-77
+                    </button>
+
+                    <button class="btn btn-primary btn-header contact-btn" data-type="whatsapp" data-value="+79134425777">
+                        <i class="bi bi-whatsapp responsive-icon"></i>
+                        WhatsApp
+                    </button>
+
+                    <button class="btn btn-primary btn-header contact-btn" data-type="email" data-value="manyakin1975@mail.ru">
+                        <i class="bi bi-envelope responsive-icon"></i>
+                        manyakin1975@mail.ru
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -94,6 +94,8 @@ p {
     text-align: center;
     justify-content: center;
     gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {

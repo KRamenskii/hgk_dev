@@ -13,10 +13,10 @@
                     <i class="icon">📞</i>
                 </div>
                 <h3 class="contact-card-title">Телефон</h3>
-                <p class="contact-card-text contact-btn" data-type="call" data-value="+79134425777" style="cursor: pointer;">
+                <p class="contact-card-text contact-btn" data-type="call" data-value="+79134425777" style="cursor: pointer; text-decoration: none;">
                     {% if settings %}{{ settings.phone }}{% else %}+7 (913) 442-57-77{% endif %}
                 </p>
-                <p class="contact-btn" data-type="call" data-value="+79135461984" style="cursor: pointer;">
+                <p class="contact-card-text contact-btn" data-type="call" data-value="+79135461984" style="cursor: pointer; text-decoration: none;">
                     {% if settings %}{{ settings.additional_telephone }}{% else %}+7 (913) 546-19-84{% endif %}
                 </p>
             </div>
