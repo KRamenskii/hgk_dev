@@ -50,10 +50,6 @@
     .stat-label {
         font-size: 1rem;
     }
-
-    .hero-content {
-        margin-top: -1rem;
-    }
 }
 
 /* Tablet */
@@ -132,7 +128,7 @@
     .hero-content {
         max-width: 60vw;
         gap: 2rem;
-        margin-top: -6rem;
+        margin-top: -3rem;
     }
 
     .hero-title {
@@ -198,7 +194,7 @@
     .hero-content {
         max-width: 80vw;
         text-align: center;
-        margin-top: -7rem;
+        margin-top: -3.5rem;
     }
 
     .hero-title {

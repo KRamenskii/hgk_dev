@@ -1,5 +1,4 @@
 // Main JavaScript file for HGK website
-
 document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect for transparent header
     const header = document.getElementById('header');
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe all cards and sections
-    const animatedElements = document.querySelectorAll('.service-card, .advantage-card, .contact-card, .achievement-card, .coverage-stat-card, .employee-card, .city-card');
+    const animatedElements = document.querySelectorAll('.service-card, .advantage-card, .contact-card, .coverage-stat-card');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -88,21 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Statistics counter animation
-    const statNumbers = document.querySelectorAll('.stat__number, .achievement-card__number, .coverage-stat-card__number');
-    const statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    statNumbers.forEach(stat => {
-        statsObserver.observe(stat);
-    });
-
     // Mobile menu toggle (if needed)
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     if (mobileMenuToggle) {
@@ -127,131 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     images.forEach(img => imageObserver.observe(img));
-});
 
-// Global functions
-function openContactModal(requestType) {
-    // Здесь можно открыть модальное окно с формой
-    // Пока что просто показываем уведомление
-    showNotification(`Открываем форму для: ${getRequestTypeText(requestType)}`);
-}
-
-function getRequestTypeText(type) {
-    const types = {
-        'call': 'Заказать звонок',
-        'consultation': 'Получить консультацию',
-        'delivery': 'Заказать доставку'
-    };
-    return types[type] || 'Обратной связи';
-}
-
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--primary-color);
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        z-index: 1000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-        word-wrap: break-word;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            if (document.body.contains(notification)) {
-                document.body.removeChild(notification);
-            }
-        }, 300);
-    }, 3000);
-}
-
-function animateCounter(element) {
-    const target = parseInt(element.textContent.replace(/\D/g, ''));
-    const duration = 2000;
-    const step = target / (duration / 16);
-    let current = 0;
-    
-    const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        
-        const suffix = element.textContent.replace(/\d/g, '');
-        element.textContent = Math.floor(current) + suffix;
-    }, 16);
-}
-
-// Add CSS for ripple effect and notifications
-const style = document.createElement('style');
-style.textContent = `
-    .btn {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        pointer-events: none;
-    }
-    
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-    
-    .notification {
-        animation: slideIn 0.3s ease;
-    }
-    
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-        }
-        to {
-            transform: translateX(0);
-        }
-    }
-    
-    /* Adjust body padding for fixed header */
-    body {
-        padding-top: 80px;
-    }
-    
-    /* Hero section adjustments */
-    .hero {
-        padding-top: calc(6rem + 80px);
-    }
-`;
-document.head.appendChild(style);
-
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Menu
     const menuToggle = document.getElementById("menuToggle");
     const mobileMenu = document.getElementById("mobileMenu");
 
@@ -268,10 +129,8 @@ document.addEventListener("DOMContentLoaded", function () {
             icon.classList.add("bi-list");
         }
     });
-});
 
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Maps
     ymaps.ready(init);
 
     function init() {
@@ -301,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
