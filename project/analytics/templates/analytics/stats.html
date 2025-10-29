@@ -1,0 +1,114 @@
+{% extends "base_plain.html" %}
+{% block content %}
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>📊 Статистика</h2>
+    <div>
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-secondary btn-sm">Выйти</button>
+    </form>
+    </div>
+  </div>
+
+  <form method="get" class="row g-2 align-items-end mb-4">
+    <div class="col-auto">
+      <label for="id_date" class="form-label">Дата</label>
+      <input id="id_date" type="date" name="date" class="form-control" value="{{ filter_date }}">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Фильтровать</button>
+    </div>
+    <div class="col-auto">
+      <a href="{% url 'analytics_stats' %}" class="btn btn-secondary">Сброс</a>
+    </div>
+    <div class="col-auto ms-auto">
+      <span class="badge text-bg-info">Посещения: {{ visits_count }}</span>
+      <span class="badge text-bg-warning">Клики: {{ clicks_count }}</span>
+    </div>
+  </form>
+
+  <div class="card mb-4">
+    <div class="card-header">📈 Динамика за 7 дней</div>
+    <div class="card-body">
+      <canvas id="analyticsChart" height="120"></canvas>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="card">
+        <div class="card-header">Последние посещения</div>
+        <div class="card-body p-0">
+          <table class="table table-striped table-sm mb-0">
+            <thead>
+              <tr><th>Страница</th><th>IP</th><th>Браузер</th><th>Время</th></tr>
+            </thead>
+            <tbody>
+              {% for v in page_visits %}
+              <tr>
+                <td>{{ v.page_url }}</td>
+                <td>{{ v.ip_address }}</td>
+                <td title="{{ v.user_agent }}">{{ v.user_agent|truncatechars:40 }}</td>
+                <td>{{ v.timestamp|date:"d.m.Y H:i" }}</td>
+              </tr>
+              {% empty %}
+              <tr><td colspan="4" class="text-center py-3">Нет данных</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+      <div class="card">
+        <div class="card-header">Последние клики</div>
+        <div class="card-body p-0">
+          <table class="table table-striped table-sm mb-0">
+            <thead>
+              <tr><th>Кнопка</th><th>Страница</th><th>IP</th><th>Время</th></tr>
+            </thead>
+            <tbody>
+              {% for c in button_clicks %}
+              <tr>
+                <td>{{ c.button_id }}</td>
+                <td>{{ c.page_url }}</td>
+                <td>{{ c.ip_address }}</td>
+                <td>{{ c.timestamp|date:"d.m.Y H:i" }}</td>
+              </tr>
+              {% empty %}
+              <tr><td colspan="4" class="text-center py-3">Нет данных</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const labels = {{ chart_labels|safe }};
+const visits = {{ chart_visits|safe }};
+const clicks = {{ chart_clicks|safe }};
+
+const ctx = document.getElementById('analyticsChart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      { label: 'Посещения', data: visits, tension: 0.3, fill: true },
+      { label: 'Клики', data: clicks, tension: 0.3, fill: true }
+    ]
+  },
+  options: {
+    responsive: true,
+    scales: { y: { beginAtZero: true, ticks: { precision: 0 } } },
+    plugins: { legend: { position: 'top' } }
+  }
+});
+</script>
+{% endblock %}

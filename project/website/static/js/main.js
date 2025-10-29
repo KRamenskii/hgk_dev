@@ -202,3 +202,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            fetch("/analytics/track_click/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    button_id: btn.id || btn.textContent.trim(),
+                    page_url: window.location.pathname
+                })
+            }).catch(err => console.error("Click tracking failed", err));
+        });
+    });
+});

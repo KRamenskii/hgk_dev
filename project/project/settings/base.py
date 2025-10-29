@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
+    'analytics',
 ]
 
 MIDDLEWARE = [
@@ -36,6 +37,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'analytics.middleware.AnalyticsMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -103,3 +105,7 @@ LOGGING = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 YANDEX_MAP_API_KEY = os.getenv("YANDEX_MAP_API_KEY")
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/analytics/stats/'
+LOGOUT_REDIRECT_URL = '/login/'
