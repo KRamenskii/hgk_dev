@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     {% block extra_css %}{% endblock %}
 </head>
+
+<div id="cookie-banner" class="cookie-banner bg-dark text-white p-3 fixed-bottom text-center" style="display:none;">
+    Мы используем файлы cookie. Продолжая пользоваться сайтом, вы соглашаетесь с нашей 
+    <a href="{% url 'privacy' %}" class="text-warning">Политикой конфиденциальности</a>.
+    <button class="btn btn-sm btn-light ms-2" onclick="acceptCookies()">ОК</button>
+</div>
+
 <body>
     {% include 'website/includes/header.html' %}
 
