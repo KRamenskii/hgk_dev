@@ -18,7 +18,12 @@ jobs:
           echo "USER=${{ secrets.SERVER_USER }}"
           echo "HOST=${{ secrets.SERVER_HOST }}"
           echo "PATH=${{ secrets.SERVER_PATH }}"
-        
+      
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+          
       - name: 🔑 Set up SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
