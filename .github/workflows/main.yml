@@ -20,6 +20,7 @@ jobs:
 
       - name: 🛠️ Deploy to server
         run: |
+          echo "Подключаемся к серверу..."
           ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
             cd ${{ secrets.SERVER_PATH }}
             echo "📦 Обновляем код..."
