@@ -13,6 +13,12 @@ jobs:
       - name: 🧩 Checkout repository
         uses: actions/checkout@v4
 
+      - name: 🔍 Debug secrets
+        run: |
+          echo "USER=${{ secrets.SERVER_USER }}"
+          echo "HOST=${{ secrets.SERVER_HOST }}"
+          echo "PATH=${{ secrets.SERVER_PATH }}"
+        
       - name: 🔑 Set up SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
