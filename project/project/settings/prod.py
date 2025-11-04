@@ -1,7 +1,14 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['yourdomain.com'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['xn--19-glc2a5c.xn--p1ai.com', 'www.xn--19-glc2a5c.xn--p1ai'])
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+    'http://xn--19-glc2a5c.xn--p1ai',
+    'http://www.xn--19-glc2a5c.xn--p1ai',
+]
 
 DATABASES = {
     'default': {

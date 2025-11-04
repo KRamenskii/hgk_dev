@@ -1,0 +1,46 @@
+name: HGK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧩 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔑 Set up SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 🛠️ Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+            cd ${{ secrets.SERVER_PATH }}
+            echo "📦 Обновляем код..."
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo "🐍 Активируем виртуальное окружение..."
+            source venv/bin/activate
+
+            echo "📚 Устанавливаем зависимости..."
+            pip install -r requirements.txt
+
+            echo "🧰 Применяем миграции..."
+            python manage.py migrate --settings=project.settings.prod
+
+            echo "🧱 Собираем статику..."
+            python manage.py collectstatic --noinput --settings=project.settings.prod
+
+            echo "🔁 Перезапускаем Gunicorn и Nginx..."
+            sudo systemctl restart gunicorn
+            sudo systemctl restart nginx
+
+            echo "✅ Деплой успешно завершён!"
+          EOF
