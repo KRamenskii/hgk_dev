@@ -12,12 +12,12 @@ CSRF_TRUSTED_ORIGINS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': env('POSTGRES_DB'),
-        'USER': env('POSTGRES_USER'),
-        'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': env('DB_HOST', default='db'),
-        'PORT': env('DB_PORT', default=5432),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB', 'hgk_db'),
+        'USER': os.environ.get('POSTGRES_USER', 'hgk_user'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'hgk_pass'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'db'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
 
