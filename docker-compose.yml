@@ -62,4 +62,3 @@ volumes:
 
 networks:
   hgk_network:
-    driver: bridge
