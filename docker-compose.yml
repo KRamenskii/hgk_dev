@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   web:
     build: .
@@ -44,9 +46,9 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./project/static:/static
-      - ./project/media:/media
-      - /etc/letsencrypt:/etc/letsencrypt
+      - ./staticfiles:/staticfiles
+      - ./media:/media
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
       web:
         condition: service_healthy
