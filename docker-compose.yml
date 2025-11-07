@@ -13,7 +13,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:15
@@ -37,7 +38,8 @@ services:
       - ./media:/media
       - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
-      - web
+      web:
+        condition: service_healthy
 
 volumes:
   postgres_data:
