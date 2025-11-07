@@ -16,8 +16,16 @@ def env_bool(key, default=False):
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-dev-key")
 DEBUG = env_bool("DEBUG", False)
 
-ALLOWED_HOSTS = ["xn---19-5cdaabev5b2a1b.xn--p1ai", "www.xn---19-5cdaabev5b2a1b.xn--p1ai", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "xn---19-5cdaabev5b2a1b.xn--p1ai",
+    "www.xn---19-5cdaabev5b2a1b.xn--p1ai",
+    "localhost",
+    "127.0.0.1",
+    "45.87.247.113",
+]
+
 CSRF_TRUSTED_ORIGINS = [o.strip() for o in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()]
+CSRF_TRUSTED_ORIGINS += ["http://45.87.247.113"]
 
 YANDEX_MAP_API_KEY = os.getenv("YANDEX_MAP_API_KEY", "")
 
@@ -55,7 +63,6 @@ TEMPLATES = [
         "DIRS": [
             BASE_DIR / 'templates',
             BASE_DIR / "website" / "templates",
-            BASE_DIR / "analytics" / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
