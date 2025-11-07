@@ -16,7 +16,7 @@ def env_bool(key, default=False):
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-dev-key")
 DEBUG = env_bool("DEBUG", False)
 
-ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h.strip()]
+ALLOWED_HOSTS = ["xn---19-5cdaabev5b2a1b.xn--p1ai", "www.xn---19-5cdaabev5b2a1b.xn--p1ai", "localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = [o.strip() for o in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()]
 
 # ========== APPS ==========
