@@ -119,7 +119,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "website" / "static",
-    BASE_DIR / "analytics" / "static",
 ]
 
 MEDIA_URL = os.getenv("MEDIA_URL", "/media/")
