@@ -19,6 +19,8 @@ DEBUG = env_bool("DEBUG", False)
 ALLOWED_HOSTS = ["xn---19-5cdaabev5b2a1b.xn--p1ai", "www.xn---19-5cdaabev5b2a1b.xn--p1ai", "localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = [o.strip() for o in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()]
 
+YANDEX_MAP_API_KEY = os.getenv("YANDEX_MAP_API_KEY", "")
+
 # ========== APPS ==========
 INSTALLED_APPS = [
     "django.contrib.admin",
