@@ -8,10 +8,9 @@ services:
       gunicorn project.wsgi:application --bind 0.0.0.0:8000
       "
     volumes:
-      volumes:
-        - ./project:/app
-        - ./staticfiles:/app/staticfiles
-        - ./media:/app/media
+      - ./project:/app
+      - ./staticfiles:/app/staticfiles
+      - ./media:/app/media
     env_file:
       - .env
     healthcheck:
