@@ -117,8 +117,8 @@ USE_TZ = True
 STATIC_URL = os.getenv("STATIC_URL", "/static/")
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    BASE_DIR / "website" / "static",
+    BASE_DIR / "project" / "static",
+    BASE_DIR / "project" / "website" / "static",
 ]
 
 MEDIA_URL = os.getenv("MEDIA_URL", "/media/")
