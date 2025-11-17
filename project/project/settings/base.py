@@ -17,8 +17,6 @@ SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-dev-key")
 DEBUG = env_bool("DEBUG", False)
 
 ALLOWED_HOSTS = [
-    "xn---19-5cdaabev5b2a1b.xn--p1ai",
-    "www.xn---19-5cdaabev5b2a1b.xn--p1ai",
     "xn--19-glc2a5c.xn--p1ai",
     "www.xn--19-glc2a5c.xn--p1ai",
     "localhost",
